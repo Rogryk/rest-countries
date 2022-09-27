@@ -127,7 +127,7 @@ const Body: React.FC<IBody> = (props) => {
           countryClickHandler={elementClickHandler}
         />
       ) : (
-        <div>
+        <>
           <Filters
             regionFilterHandler={regionFilterHandler}
             keywordFilterHandler={keywordFilterHandler}
@@ -140,7 +140,7 @@ const Body: React.FC<IBody> = (props) => {
               colorMode={colorMode}
             />
           )}
-        </div>
+        </>
       )}
     </main>
   );

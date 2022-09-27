@@ -1,8 +1,17 @@
 .content {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+@media only screen and (max-width: 530px) {
+  .content {
+    justify-content: center;
+  }
+}
+
+/* THEME COLORS */
 
 .light {
   background: var(--light-mode-background);

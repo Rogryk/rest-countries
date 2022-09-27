@@ -9,10 +9,14 @@
   --dark-mode-input: hsl(0, 0%, 52%);
   --dark-mode-background: hsl(207, 26%, 17%);
   --dark-mode-element-background: hsl(209, 23%, 22%);
+
   /* LAYOUT SIZES */
-  --element-margin: 16px;
+  --element-margin-1440px: 16px;
+  --element-margin-375px: auto;
   --card-height: 280px;
+  --card-height-375px: fit-content;
   --card-width: 190px;
+  --card-width-375px: 90%;
   --card-font-size-country: 1.1rem;
   --card-font-size-info: 0.8rem;
 }

@@ -1,7 +1,7 @@
 header {
-  padding: 0 50px;
+  padding: 0px 50px;
   display: flex;
-  height: 50px;
+  height: 70px;
   align-items: center;
   justify-content: space-between;
   -webkit-box-shadow: 0px 6px 10px -13px rgb(66 68 90);
@@ -9,6 +9,16 @@ header {
   box-shadow: 0px 6px 10px -13px rgb(66 68 90);
 }
 
+@media only screen and (max-width: 530px) {
+  header {
+    padding: 0px 17px;
+  }
+  header h3 {
+    font-size: 1rem;
+  }
+}
+
+/* THEME  */
 .light {
   background: var(--light-mode-element-background);
   color: var(--light-mode-text);

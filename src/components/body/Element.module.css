@@ -30,6 +30,17 @@
   padding: 0.08rem 0;
 }
 
+@media only screen and (max-width: 530px) {
+  .element {
+    margin: 1rem 0;
+    width: var(--card-width-375px);
+    height: var(--card-height-375px);
+    padding-bottom: 40px;
+  }
+}
+
+/* THEME COLORS */
+
 .light {
   background: var(--light-mode-element-background);
   color: var(--light-mode-text);
