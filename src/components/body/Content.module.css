@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.light {
+  background: var(--light-mode-background);
+  color: var(--light-mode-text);
+}
+.dark {
+  background: var(--dark-mode-background);
+  color: var(--dark-mode-text);
+}

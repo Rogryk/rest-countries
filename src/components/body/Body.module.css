@@ -1,0 +1,13 @@
+.body {
+  padding: 2.5rem 2rem;
+  min-height: 100vh;
+}
+
+.light {
+  background: var(--light-mode-background);
+  color: var(--light-mode-text);
+}
+.dark {
+  background: var(--dark-mode-background);
+  color: var(--dark-mode-text);
+}

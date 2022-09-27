@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Body from "./components/body/Body";
+import Header from "./components/header/Header";
+import styles from "./App.module.css";
 
-function App() {
+const App: React.FC = () => {
+  const [themekColor, setThemeColor] = useState<"light" | "dark">("dark");
+
+  const toggleDarkModeHandler = () => {
+    setThemeColor((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
+  const classList = `${styles.app} ${themekColor}`;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classList}>
+      <Header toggleDarkMode={toggleDarkModeHandler} colorMode={themekColor} />
+      <Body colorMode={themekColor} />
     </div>
   );
-}
+};
 
 export default App;

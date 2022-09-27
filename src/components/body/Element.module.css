@@ -1,0 +1,40 @@
+.element {
+  margin: 1.5rem 1rem;
+  height: var(--card-height);
+  width: var(--card-width);
+}
+
+.element:hover {
+  cursor: pointer;
+}
+
+.image-container {
+  min-height: 50%;
+}
+
+.element img {
+  width: 100%;
+}
+
+.info {
+  margin: 0 0 0 1rem;
+  font-size: var(--card-font-size-info);
+}
+
+.info h3 {
+  padding: 0.6rem 0;
+  font-size: var(--card-font-size-country);
+}
+
+.info p {
+  padding: 0.08rem 0;
+}
+
+.light {
+  background: var(--light-mode-element-background);
+  color: var(--light-mode-text);
+}
+.dark {
+  background: var(--dark-mode-element-background);
+  color: var(--dark-mode-text);
+}

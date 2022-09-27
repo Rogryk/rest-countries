@@ -1,0 +1,48 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--element-margin);
+}
+
+.input-wrapper {
+  margin-bottom: 2rem;
+  width: 300px;
+}
+
+.input-width {
+  width: 500px;
+}
+
+.border-transparent,
+.border-transparent:focus {
+  border: 1px solid transparent !important;
+}
+
+.button-font {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.filter-height {
+  height: 48px;
+}
+
+.button-inner {
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.theme-light {
+  background-color: var(--light-mode-element-background) !important;
+  color: var(--light-mode-text) !important;
+}
+
+.theme-dark {
+  background-color: var(--dark-mode-element-background) !important;
+  color: var(--dark-mode-text) !important;
+}
+
+.theme-dark-hover:hover {
+  background-color: var(--dark-mode-background) !important;
+}
