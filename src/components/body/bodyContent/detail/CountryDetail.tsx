@@ -40,7 +40,7 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
             <span
               onClick={() => props.countryClickHandler(country)}
               className={
-                `${styles.borderCountriesElement} ${themeCtx.theme}` +
+                `${styles.borderCountriesElement} ${themeCtx.theme}-element` +
                 " hover-effect"
               }
             >
@@ -56,7 +56,7 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
       <nav className={styles.nav}>
         <Card theme={themeCtx.theme}>
           <button
-            className={`${styles["back-btn"]} ${themeCtx.theme} `}
+            className={`${styles["back-btn"]} ${themeCtx.theme}-element `}
             onClick={props.backClickHandler}
           >
             Back

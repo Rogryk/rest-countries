@@ -15,7 +15,7 @@ const Header: React.FC<IHeader> = (props) => {
   const colorMode = props.colorMode || "light";
 
   return (
-    <header className={`${styles.header} ${themeCtx.theme}`}>
+    <header className={`${styles.header} ${themeCtx.theme}-element`}>
       <h3>Where in the world?</h3>
       <ToggleBtn onClick={props.toggleDarkMode} />
     </header>

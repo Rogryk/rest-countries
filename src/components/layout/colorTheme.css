@@ -1,9 +1,18 @@
 .light {
+  background-color: var(--light-mode-background) !important;
+  color: var(--light-mode-text) !important;
+}
+.light-element {
   background-color: var(--light-mode-element-background) !important;
   color: var(--light-mode-text) !important;
 }
 
-.dark {
+.dark-element {
   background-color: var(--dark-mode-element-background) !important;
+  color: var(--dark-mode-text) !important;
+}
+
+.dark {
+  background-color: var(--dark-mode-background) !important;
   color: var(--dark-mode-text) !important;
 }

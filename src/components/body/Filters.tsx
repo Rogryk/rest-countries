@@ -41,8 +41,10 @@ const Filters: React.FC<IFilters> = (props) => {
             value={searchInput}
             onChange={onSearchInputChange}
             classNames={{
-              input: themeCtx.theme + ` ${styles["border-transparent"]} `,
-              icon: themeCtx.theme,
+              input:
+                `${themeCtx.theme}-element` +
+                ` ${styles["border-transparent"]} `,
+              icon: `${themeCtx.theme}-element`,
               wrapper: styles["input-width"],
             }}
             icon={<IconSearch />}
@@ -59,9 +61,10 @@ const Filters: React.FC<IFilters> = (props) => {
           width={"target"}
           classNames={{
             item:
-              themeCtx.theme + ` ${styles[`theme-${themeCtx.theme}-hover`]}`,
+              `${themeCtx.theme}-element` +
+              ` ${styles[`theme-${themeCtx.theme}-hover`]}`,
             dropdown:
-              themeCtx.theme +
+              `${themeCtx.theme}-element` +
               ` ${styles["border-transparent"]} ${
                 styles[`dropdown-shadow-${themeCtx.theme}`]
               }`,
@@ -71,7 +74,7 @@ const Filters: React.FC<IFilters> = (props) => {
             <Button
               classNames={{
                 root:
-                  themeCtx.theme +
+                  `${themeCtx.theme}-element` +
                   ` ${styles["button-font"]} ${styles["filter-height"]}`,
               }}
             >

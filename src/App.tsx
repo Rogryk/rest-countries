@@ -6,22 +6,19 @@ import "./components/layout/colorTheme.css";
 import ThemeProvider from "./components/store/ThemeProvider";
 
 const App: React.FC = () => {
-  const [themekColor, setThemeColor] = useState<"light" | "dark">("dark");
+  const [themeColor, setThemeColor] = useState<"light" | "dark">("dark");
 
   const toggleDarkModeHandler = () => {
     setThemeColor((prev) => (prev === "light" ? "dark" : "light"));
   };
 
-  const classList = `${styles.app} ${themekColor}`;
+  const classList = `${styles.app} ${styles.dark}`;
 
   return (
     <div className={classList}>
       <ThemeProvider>
-        <Header
-          toggleDarkMode={toggleDarkModeHandler}
-          colorMode={themekColor}
-        />
-        <Body colorMode={themekColor} />
+        <Header toggleDarkMode={toggleDarkModeHandler} colorMode={themeColor} />
+        <Body colorMode={themeColor} />
       </ThemeProvider>
     </div>
   );
