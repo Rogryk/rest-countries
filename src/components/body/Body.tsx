@@ -33,7 +33,8 @@ export interface ICountryDetailedData extends ICountryBasicData {
 
 interface IFetchedData {
   data: ICountryDetailedData[];
-  error: string | null;
+  isError: boolean;
+  isLoading: boolean;
 }
 
 const Body: React.FC = () => {
@@ -43,37 +44,31 @@ const Body: React.FC = () => {
   const [regionFilter, setRegionFilter] = useState("all");
   const [keywordFilter, setKeywordFilter] = useState("");
   const [selectedCountryName, setSelectedCountryName] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isError, setIsError] = useState(false);
 
   const themeCtx = useContext(ThemeContext);
 
-  const data: IFetchedData = useFetchData("https://restcountries.com/v2/all");
+  const { data, isError, isLoading }: IFetchedData = useFetchData(
+    "https://restcountries.com/v2/all"
+  );
 
   useEffect(() => {
-    if (data.error) {
-      setIsError(true);
-      setIsLoading(false);
-    }
-  }, [data.error]);
-
-  useEffect(() => {
-    setDataToDisplay(data.data);
-    if (data.data.length > 0) setIsLoading(false);
+    setDataToDisplay(data);
   }, [data]);
 
   useEffect(() => {
     let dataFilteredByRegion = null;
     let dataFilteredByKeyword = null;
 
-    if (!data.data) {
+    if (!data) {
       return;
     }
 
     if (regionFilter === "all") {
-      dataFilteredByRegion = data.data;
+      dataFilteredByRegion = data;
     } else {
-      dataFilteredByRegion = data.data.filter(
+      dataFilteredByRegion = data.filter(
         (el) => el.region.toLowerCase() === regionFilter.toLowerCase()
       );
     }
@@ -128,7 +123,7 @@ const Body: React.FC = () => {
     <main className={`${styles.body} ${themeCtx.theme}`}>
       {selectedCountryName && data ? (
         <CountryDetail
-          {...extractSingleCountryDataHandler(data.data, selectedCountryName)}
+          {...extractSingleCountryDataHandler(data, selectedCountryName)}
           backClickHandler={backClickHandler}
           countryClickHandler={elementClickHandler}
         />
@@ -149,9 +144,7 @@ const Body: React.FC = () => {
             <Loader className={styles["loader-position"]} variant="oval" />
           )}
 
-          {!isLoading && isError && (
-            <p>Fetching Error. Check your connection.</p>
-          )}
+          {isError && <p>Fetching Error. Check your connection.</p>}
         </>
       )}
     </main>
