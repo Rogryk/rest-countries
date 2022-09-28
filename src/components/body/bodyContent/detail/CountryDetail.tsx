@@ -24,7 +24,7 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
   const languages = props.languages.map((language) => {
     return (
       <span key={language.name} className={styles.separator}>
-        {language.name}
+        {" " + language.name}
       </span>
     );
   });
