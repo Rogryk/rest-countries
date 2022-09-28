@@ -5,18 +5,8 @@
   overflow: hidden;
 }
 
-@media only screen and (max-width: 530px) {
-  .body {
-    /* padding: 0.5rem 0.3rem; */
-  }
-}
-
-/* THEME COLORS */
-.light {
-  background: var(--light-mode-background);
-  color: var(--light-mode-text);
-}
-.dark {
-  background: var(--dark-mode-background);
-  color: var(--dark-mode-text);
+.loader-position {
+  position: absolute;
+  top: 30%;
+  left: 50%;
 }

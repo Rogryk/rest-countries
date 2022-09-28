@@ -4,6 +4,7 @@ import Filters from "./Filters";
 import styles from "./Body.module.css";
 import CountryDetail from "./bodyContent/detail/CountryDetail";
 import ThemeContext from "../store/theme-context";
+import { Loader } from "@mantine/core";
 
 export interface ICountryBasicData {
   flag: string;
@@ -29,11 +30,7 @@ export interface ICountryDetailedData extends ICountryBasicData {
   borderCountries: string[];
 }
 
-interface IBody {
-  colorMode?: "light" | "dark";
-}
-
-const Body: React.FC<IBody> = (props) => {
+const Body: React.FC = () => {
   const [data, setData] = useState<ICountryBasicData[] | null>(null);
   const [dataToDisplay, setDataToDisplay] = useState<
     ICountryBasicData[] | null
@@ -78,8 +75,6 @@ const Body: React.FC<IBody> = (props) => {
       setDataToDisplay(dataFilteredByRegion);
     }
   }, [regionFilter, keywordFilter]);
-
-  const colorMode = props.colorMode || "light";
 
   const regionFilterHandler = (region: string) => {
     setRegionFilter(region);
@@ -131,11 +126,13 @@ const Body: React.FC<IBody> = (props) => {
             regionFilterHandler={regionFilterHandler}
             keywordFilterHandler={keywordFilterHandler}
           />
-          {dataToDisplay && (
+          {dataToDisplay ? (
             <Content
               content={dataToDisplay}
               elementClickHandler={elementClickHandler}
             />
+          ) : (
+            <Loader className={styles["loader-position"]} variant="oval" />
           )}
         </>
       )}

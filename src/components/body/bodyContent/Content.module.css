@@ -8,7 +8,6 @@
 @media only screen and (min-width: 1400px) {
   .content::after {
     content: "";
-
     width: 666px;
   }
 }
@@ -17,15 +16,4 @@
   .content {
     justify-content: center;
   }
-}
-
-/* THEME COLORS */
-
-.light {
-  background: var(--light-mode-background);
-  color: var(--light-mode-text);
-}
-.dark {
-  background: var(--dark-mode-background);
-  color: var(--dark-mode-text);
 }

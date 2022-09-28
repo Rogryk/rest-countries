@@ -17,13 +17,3 @@ header {
     font-size: 1rem;
   }
 }
-
-/* THEME  */
-.light {
-  background: var(--light-mode-element-background);
-  color: var(--light-mode-text);
-}
-.dark {
-  background: var(--dark-mode-element-background);
-  color: var(--dark-mode-text);
-}

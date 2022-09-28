@@ -72,15 +72,3 @@
     width: 100%;
   }
 }
-
-/* THEME COLORS */
-
-.theme-light {
-  background-color: var(--light-mode-element-background) !important;
-  color: var(--light-mode-text) !important;
-}
-
-.theme-dark {
-  background-color: var(--dark-mode-element-background) !important;
-  color: var(--dark-mode-text) !important;
-}
