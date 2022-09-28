@@ -3,6 +3,8 @@ import Card from "../../layout/Card";
 import styles from "./Element.module.css";
 import { ICountryBasicData } from "../Body";
 import ThemeContext from "../../store/theme-context";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 
 interface IElement extends ICountryBasicData {
   elementClickHandler: (arg: string) => void;
@@ -20,7 +22,19 @@ const Element: React.FC<IElement> = (props) => {
       onClick={() => props.elementClickHandler(props.name)}
     >
       <div className={styles["image-container"]}>
-        <img src={props.flag}></img>
+        {/* <img
+          src={props.flag}
+          width={"190"}
+          height={"auto"}
+          loading={"lazy"}
+        ></img> */}
+        <LazyLoadImage
+          alt={"flag"}
+          src={props.flag}
+          width={"190px"}
+          height={"auto"}
+          effect="opacity"
+        ></LazyLoadImage>
       </div>
       <div className={styles.info}>
         <h3>{props.name}</h3>

@@ -3,9 +3,7 @@ import ToggleBtn from "../UI/ToggleBtn";
 import styles from "./Header.module.css";
 import ThemeContext from "../store/theme-context";
 
-interface IHeader {}
-
-const Header: React.FC<IHeader> = (props) => {
+const Header: React.FC = () => {
   const themeCtx = useContext(ThemeContext);
 
   return (
