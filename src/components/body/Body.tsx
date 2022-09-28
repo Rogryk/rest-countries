@@ -5,6 +5,7 @@ import styles from "./Body.module.css";
 import CountryDetail from "./bodyContent/detail/CountryDetail";
 import ThemeContext from "../store/theme-context";
 import { Loader } from "@mantine/core";
+import useFetchData from "../hooks/useFetchData";
 
 export interface ICountryBasicData {
   flag: string;
@@ -30,38 +31,49 @@ export interface ICountryDetailedData extends ICountryBasicData {
   borderCountries: string[];
 }
 
+interface IFetchedData {
+  data: ICountryDetailedData[];
+  error: string | null;
+}
+
 const Body: React.FC = () => {
-  const [data, setData] = useState<ICountryBasicData[] | null>(null);
   const [dataToDisplay, setDataToDisplay] = useState<
     ICountryBasicData[] | null
   >(null);
   const [regionFilter, setRegionFilter] = useState("all");
   const [keywordFilter, setKeywordFilter] = useState("");
   const [selectedCountryName, setSelectedCountryName] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const themeCtx = useContext(ThemeContext);
 
+  const data: IFetchedData = useFetchData("https://restcountries.com/v2/all");
+
   useEffect(() => {
-    fetch("https://restcountries.com/v2/all")
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res), setDataToDisplay(res);
-      });
-  }, []);
+    if (data.error) {
+      setIsError(true);
+      setIsLoading(false);
+    }
+  }, [data.error]);
+
+  useEffect(() => {
+    setDataToDisplay(data.data);
+    if (data.data.length > 0) setIsLoading(false);
+  }, [data]);
 
   useEffect(() => {
     let dataFilteredByRegion = null;
     let dataFilteredByKeyword = null;
 
-    if (!data) {
+    if (!data.data) {
       return;
     }
 
     if (regionFilter === "all") {
-      dataFilteredByRegion = data;
-      console.log("lalala");
+      dataFilteredByRegion = data.data;
     } else {
-      dataFilteredByRegion = data.filter(
+      dataFilteredByRegion = data.data.filter(
         (el) => el.region.toLowerCase() === regionFilter.toLowerCase()
       );
     }
@@ -116,7 +128,7 @@ const Body: React.FC = () => {
     <main className={`${styles.body} ${themeCtx.theme}`}>
       {selectedCountryName && data ? (
         <CountryDetail
-          {...extractSingleCountryDataHandler(data, selectedCountryName)}
+          {...extractSingleCountryDataHandler(data.data, selectedCountryName)}
           backClickHandler={backClickHandler}
           countryClickHandler={elementClickHandler}
         />
@@ -126,13 +138,19 @@ const Body: React.FC = () => {
             regionFilterHandler={regionFilterHandler}
             keywordFilterHandler={keywordFilterHandler}
           />
-          {dataToDisplay ? (
+          {dataToDisplay && (
             <Content
               content={dataToDisplay}
               elementClickHandler={elementClickHandler}
             />
-          ) : (
+          )}
+
+          {isLoading && (
             <Loader className={styles["loader-position"]} variant="oval" />
+          )}
+
+          {!isLoading && isError && (
+            <p>Fetching Error. Check your connection.</p>
           )}
         </>
       )}

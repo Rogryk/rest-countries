@@ -7,7 +7,6 @@ interface IHeader {}
 
 const Header: React.FC<IHeader> = (props) => {
   const themeCtx = useContext(ThemeContext);
-  console.log(themeCtx.theme);
 
   return (
     <header className={`${styles.header} ${themeCtx.theme}-element`}>
