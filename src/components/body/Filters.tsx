@@ -48,8 +48,8 @@ const Filters: React.FC<IFilters> = (props) => {
         colorMode === "light" ? styles.light : styles.dark
       }`}
     >
-      <div className={styles["input-wrapper"]}>
-        <Card>
+      <Card theme={colorMode}>
+        <div className={styles["input-wrapper"]}>
           <Input
             value={searchInput}
             onChange={onSearchInputChange}
@@ -64,15 +64,19 @@ const Filters: React.FC<IFilters> = (props) => {
             radius="md"
             size="lg"
           />
-        </Card>
-      </div>
-      <Card>
+        </div>
+      </Card>
+      <Card theme={colorMode}>
         <Menu
           shadow="md"
           width={"target"}
           classNames={{
-            item: themeColors + ` ${styles["theme-dark-hover"]}`,
-            dropdown: themeColors + ` ${styles["border-transparent"]} `,
+            item: themeColors + ` ${styles[`theme-${colorMode}-hover`]}`,
+            dropdown:
+              themeColors +
+              ` ${styles["border-transparent"]} ${
+                styles[`dropdown-shadow-${colorMode}`]
+              }`,
           }}
         >
           <Menu.Target>
@@ -89,7 +93,6 @@ const Filters: React.FC<IFilters> = (props) => {
               </div>
             </Button>
           </Menu.Target>
-
           <Menu.Dropdown>
             <Menu.Item id="africa" onClick={() => onClickHandler("africa")}>
               Africa

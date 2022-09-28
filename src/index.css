@@ -1,39 +1,9 @@
-:root {
-  /* LIGHT MODE */
-  --light-mode-text: hsl(200, 15%, 8%);
-  --light-mode-input: hsl(0, 0%, 52%);
-  --light-mode-background: hsl(0, 0%, 98%);
-  --light-mode-element-background: hsl(0, 0%, 100%);
-  /* DARK MODE */
-  --dark-mode-text: hsl(0, 0%, 100%);
-  --dark-mode-input: hsl(0, 0%, 52%);
-  --dark-mode-background: hsl(207, 26%, 17%);
-  --dark-mode-element-background: hsl(209, 23%, 22%);
-
-  /* LAYOUT SIZES */
-  --element-margin-1440px: 16px;
-  --element-margin-375px: auto;
-  --card-height: 280px;
-  --card-height-375px: fit-content;
-  --card-width: 190px;
-  --card-width-375px: 90%;
-  --card-font-size-country: 1.1rem;
-  --card-font-size-info: 0.8rem;
-}
-
 body {
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
   src: url(https://fonts.google.com/specimen/Nunito+Sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--light-mode-background);
-  color: var(--light-mode-text);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 html {

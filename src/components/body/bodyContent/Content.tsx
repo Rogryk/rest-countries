@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Content.module.css";
 import Element from "./Element";
-import { ICountryBasicData } from "./Body";
+import { ICountryBasicData } from "../Body";
 
 interface IContent {
   content: ICountryBasicData[];

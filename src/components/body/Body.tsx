@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Content from "./Content";
+import Content from "./bodyContent/Content";
 import Filters from "./Filters";
 import styles from "./Body.module.css";
-import CountryDetail from "./detail/CountryDetail";
+import CountryDetail from "./bodyContent/detail/CountryDetail";
 
 export interface ICountryBasicData {
   flag: string;
@@ -125,6 +125,7 @@ const Body: React.FC<IBody> = (props) => {
           {...extractSingleCountryDataHandler(data, selectedCountryName)}
           backClickHandler={backClickHandler}
           countryClickHandler={elementClickHandler}
+          colorMode={colorMode}
         />
       ) : (
         <>

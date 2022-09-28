@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "../layout/Card";
+import Card from "../../layout/Card";
 import styles from "./Element.module.css";
-import { ICountryBasicData } from "./Body";
+import { ICountryBasicData } from "../Body";
 
 interface IElement extends ICountryBasicData {
   elementClickHandler: (arg: string) => void;
@@ -13,6 +13,7 @@ const Element: React.FC<IElement> = (props) => {
 
   return (
     <Card
+      theme={colorMode}
       className={`${styles.element} ${
         colorMode === "light" ? styles.light : styles.dark
       }`}

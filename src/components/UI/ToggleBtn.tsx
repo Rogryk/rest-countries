@@ -9,7 +9,7 @@ interface IToggleBtn {
 
 const ToggleBtn: React.FC<IToggleBtn> = (props) => {
   return (
-    <button onClick={props.onClick} className={styles.button}>
+    <button onClick={props.onClick} className={styles.button + " hover-effect"}>
       <FontAwesomeIcon icon={faMoon} size="lg" />
       <p>Dark Mode</p>
     </button>

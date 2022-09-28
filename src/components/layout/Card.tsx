@@ -5,13 +5,18 @@ interface ICard {
   children: React.ReactNode;
   className?: string;
   onClick?: (...args: any[]) => void;
+  theme?: "light" | "dark";
 }
 
 const Card: React.FC<ICard> = (props) => {
+  const theme = props.theme ? props.theme : "light";
+
   return (
     <div
       onClick={props.onClick}
-      className={styles.card + ` ${props.className}`}
+      className={
+        styles.card + ` ${props.className} ${styles[`shadow-${theme}-theme`]}`
+      }
     >
       {props.children}
     </div>
