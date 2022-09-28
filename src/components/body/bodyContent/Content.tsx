@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Content.module.css";
 import Element from "./Element";
 import { ICountryBasicData } from "../Body";
+import ThemeContext from "../../store/theme-context";
 
 interface IContent {
   content: ICountryBasicData[];
   elementClickHandler: (arg: string) => void;
-  colorMode?: "light" | "dark";
 }
 
 const Content: React.FC<IContent> = (props) => {
-  const colorMode = props.colorMode || "light";
+  const themeCtx = useContext(ThemeContext);
 
   return (
     <section
       className={`${styles.content} ${
-        colorMode === "light" ? styles.light : styles.dark
+        themeCtx.theme === "light" ? styles.light : styles.dark
       }`}
     >
       {props.content.map((el, index) => {
@@ -28,7 +28,6 @@ const Content: React.FC<IContent> = (props) => {
             region={el.region}
             capital={el.capital}
             elementClickHandler={props.elementClickHandler}
-            colorMode={colorMode}
           />
         );
       })}

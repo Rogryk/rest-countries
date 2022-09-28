@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "../../layout/Card";
 import styles from "./Element.module.css";
 import { ICountryBasicData } from "../Body";
+import ThemeContext from "../../store/theme-context";
 
 interface IElement extends ICountryBasicData {
   elementClickHandler: (arg: string) => void;
-  colorMode?: "light" | "dark";
 }
 
 const Element: React.FC<IElement> = (props) => {
-  const colorMode = props.colorMode || "light";
+  const themeCtx = useContext(ThemeContext);
 
   return (
     <Card
-      theme={colorMode}
+      theme={themeCtx.theme}
       className={`${styles.element} ${
-        colorMode === "light" ? styles.light : styles.dark
+        themeCtx.theme === "light" ? styles.light : styles.dark
       }`}
       onClick={() => props.elementClickHandler(props.name)}
     >

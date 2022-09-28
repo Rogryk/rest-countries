@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Input } from "@mantine/core";
 import { IconSearch, IconChevronDown } from "@tabler/icons";
 import { Menu, Button, Text } from "@mantine/core";
 
 import Card from "../layout/Card";
 import styles from "./Filters.module.css";
+import ThemeContext from "../store/theme-context";
 
 interface IFilters {
   regionFilterHandler: (arg: string) => void;
@@ -15,6 +16,8 @@ interface IFilters {
 const Filters: React.FC<IFilters> = (props) => {
   const [currentRegion, setCurrentRegion] = useState("Filter by Region");
   const [searchInput, setSearchInput] = useState("");
+
+  const themeCtx = useContext(ThemeContext);
 
   useEffect(() => {
     props.keywordFilterHandler(searchInput);
@@ -30,32 +33,16 @@ const Filters: React.FC<IFilters> = (props) => {
     setSearchInput(event.target.value);
   };
 
-  const colorMode = props.colorMode || "light";
-  const themeColors =
-    colorMode === "light" ? styles["theme-light"] : styles["theme-dark"];
-
-  const buttonRootClasses = `${styles.button} ${
-    colorMode === "light"
-      ? styles["button-colors-light"]
-      : styles["button-colors-dark"]
-  }`;
-
-  console.log(buttonRootClasses);
-
   return (
-    <section
-      className={`${styles.filters} ${
-        colorMode === "light" ? styles.light : styles.dark
-      }`}
-    >
-      <Card theme={colorMode}>
+    <section className={`${styles.filters} ${themeCtx.theme}`}>
+      <Card theme={themeCtx.theme}>
         <div className={styles["input-wrapper"]}>
           <Input
             value={searchInput}
             onChange={onSearchInputChange}
             classNames={{
-              input: themeColors + ` ${styles["border-transparent"]} `,
-              icon: themeColors,
+              input: themeCtx.theme + ` ${styles["border-transparent"]} `,
+              icon: themeCtx.theme,
               wrapper: styles["input-width"],
             }}
             icon={<IconSearch />}
@@ -66,16 +53,17 @@ const Filters: React.FC<IFilters> = (props) => {
           />
         </div>
       </Card>
-      <Card theme={colorMode}>
+      <Card theme={themeCtx.theme}>
         <Menu
           shadow="md"
           width={"target"}
           classNames={{
-            item: themeColors + ` ${styles[`theme-${colorMode}-hover`]}`,
+            item:
+              themeCtx.theme + ` ${styles[`theme-${themeCtx.theme}-hover`]}`,
             dropdown:
-              themeColors +
+              themeCtx.theme +
               ` ${styles["border-transparent"]} ${
-                styles[`dropdown-shadow-${colorMode}`]
+                styles[`dropdown-shadow-${themeCtx.theme}`]
               }`,
           }}
         >
@@ -83,7 +71,7 @@ const Filters: React.FC<IFilters> = (props) => {
             <Button
               classNames={{
                 root:
-                  themeColors +
+                  themeCtx.theme +
                   ` ${styles["button-font"]} ${styles["filter-height"]}`,
               }}
             >

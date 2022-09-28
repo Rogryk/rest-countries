@@ -5,7 +5,7 @@ interface ICard {
   children: React.ReactNode;
   className?: string;
   onClick?: (...args: any[]) => void;
-  theme?: "light" | "dark";
+  theme?: "light" | "dark" | string;
 }
 
 const Card: React.FC<ICard> = (props) => {

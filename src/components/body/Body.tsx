@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Content from "./bodyContent/Content";
 import Filters from "./Filters";
 import styles from "./Body.module.css";
 import CountryDetail from "./bodyContent/detail/CountryDetail";
+import ThemeContext from "../store/theme-context";
 
 export interface ICountryBasicData {
   flag: string;
@@ -40,6 +41,8 @@ const Body: React.FC<IBody> = (props) => {
   const [regionFilter, setRegionFilter] = useState("all");
   const [keywordFilter, setKeywordFilter] = useState("");
   const [selectedCountryName, setSelectedCountryName] = useState("");
+
+  const themeCtx = useContext(ThemeContext);
 
   useEffect(() => {
     fetch("https://restcountries.com/v2/all")
@@ -115,30 +118,23 @@ const Body: React.FC<IBody> = (props) => {
   };
 
   return (
-    <main
-      className={`${styles.body} ${
-        colorMode === "light" ? styles.light : styles.dark
-      }`}
-    >
+    <main className={`${styles.body} ${themeCtx.theme}`}>
       {selectedCountryName && data ? (
         <CountryDetail
           {...extractSingleCountryDataHandler(data, selectedCountryName)}
           backClickHandler={backClickHandler}
           countryClickHandler={elementClickHandler}
-          colorMode={colorMode}
         />
       ) : (
         <>
           <Filters
             regionFilterHandler={regionFilterHandler}
             keywordFilterHandler={keywordFilterHandler}
-            colorMode={colorMode}
           />
           {dataToDisplay && (
             <Content
               content={dataToDisplay}
               elementClickHandler={elementClickHandler}
-              colorMode={colorMode}
             />
           )}
         </>

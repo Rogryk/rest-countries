@@ -17,6 +17,10 @@
   font-weight: 600;
 }
 
+.button p::first-letter {
+  text-transform: capitalize;
+}
+
 .button:hover {
   background-color: rgba(0, 0, 0, 0.03);
 }

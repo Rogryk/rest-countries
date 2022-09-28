@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Body from "./components/body/Body";
 import Header from "./components/header/Header";
 import styles from "./App.module.css";
+import "./components/layout/colorTheme.css";
+import ThemeProvider from "./components/store/ThemeProvider";
 
 const App: React.FC = () => {
   const [themekColor, setThemeColor] = useState<"light" | "dark">("dark");
@@ -14,8 +16,13 @@ const App: React.FC = () => {
 
   return (
     <div className={classList}>
-      <Header toggleDarkMode={toggleDarkModeHandler} colorMode={themekColor} />
-      <Body colorMode={themekColor} />
+      <ThemeProvider>
+        <Header
+          toggleDarkMode={toggleDarkModeHandler}
+          colorMode={themekColor}
+        />
+        <Body colorMode={themekColor} />
+      </ThemeProvider>
     </div>
   );
 };

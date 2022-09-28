@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ICountryDetailedData } from "../../Body";
 import Card from "../../../layout/Card";
+import ThemeContext from "../../../store/theme-context";
 import styles from "./CountryDetail.module.css";
-import themeStyle from "../../../layout/colorTheme.module.css";
 
 interface ICountryDetail extends ICountryDetailedData {
   backClickHandler: () => void;
   countryClickHandler: (arg: string) => void;
-  colorMode: "light" | "dark";
 }
 
 const CountryDetail: React.FC<ICountryDetail> = (props) => {
+  const themeCtx = useContext(ThemeContext);
   const currencies = props.currencies
     ? props.currencies.map((currencies) => {
         return (
@@ -35,14 +35,13 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
           <Card
             key={country}
             className={styles.borderCountriesElementWrapper}
-            theme={props.colorMode}
+            theme={themeCtx.theme}
           >
             <span
               onClick={() => props.countryClickHandler(country)}
               className={
-                `${styles.borderCountriesElement} ${
-                  themeStyle[props.colorMode]
-                }` + " hover-effect"
+                `${styles.borderCountriesElement} ${themeCtx.theme}` +
+                " hover-effect"
               }
             >
               {country}
@@ -55,9 +54,9 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
   return (
     <>
       <nav className={styles.nav}>
-        <Card theme={props.colorMode}>
+        <Card theme={themeCtx.theme}>
           <button
-            className={`${styles["back-btn"]} ${themeStyle[props.colorMode]} `}
+            className={`${styles["back-btn"]} ${themeCtx.theme} `}
             onClick={props.backClickHandler}
           >
             Back
