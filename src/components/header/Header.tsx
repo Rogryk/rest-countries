@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import ToggleBtn from "../UI/ToggleBtn";
+import ToggleBtn from "../../UI/ToggleBtn";
 import styles from "./Header.module.css";
-import ThemeContext from "../store/theme-context";
+import ThemeContext from "../../store/theme-context";
 
 const Header: React.FC = () => {
   const themeCtx = useContext(ThemeContext);

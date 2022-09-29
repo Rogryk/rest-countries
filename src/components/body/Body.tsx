@@ -3,9 +3,9 @@ import Content from "./bodyContent/Content";
 import Filters from "./Filters";
 import styles from "./Body.module.css";
 import CountryDetail from "./bodyContent/detail/CountryDetail";
-import ThemeContext from "../store/theme-context";
+import ThemeContext from "../../store/theme-context";
 import { Loader } from "@mantine/core";
-import useFetchData from "../hooks/useFetch";
+import useFetchData from "../../hooks/useFetch";
 
 export interface ICountryBasicData {
   flag: string;

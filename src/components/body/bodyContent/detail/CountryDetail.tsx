@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ICountryDetailedData } from "../../Body";
-import Card from "../../../layout/Card";
-import ThemeContext from "../../../store/theme-context";
+import Card from "../../../../layout/Card";
+import ThemeContext from "../../../../store/theme-context";
 import styles from "./CountryDetail.module.css";
 
 interface ICountryDetail extends ICountryDetailedData {

@@ -3,9 +3,9 @@ import { Input } from "@mantine/core";
 import { IconSearch, IconChevronDown } from "@tabler/icons";
 import { Menu, Button, Text } from "@mantine/core";
 
-import Card from "../layout/Card";
+import Card from "../../layout/Card";
 import styles from "./Filters.module.css";
-import ThemeContext from "../store/theme-context";
+import ThemeContext from "../../store/theme-context";
 
 interface IFilters {
   regionFilterHandler: (arg: string) => void;

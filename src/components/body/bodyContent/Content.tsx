@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styles from "./Content.module.css";
 import Element from "./Element";
 import { ICountryBasicData } from "../Body";
-import ThemeContext from "../../store/theme-context";
+import ThemeContext from "../../../store/theme-context";
 
 interface IContent {
   content: ICountryBasicData[];

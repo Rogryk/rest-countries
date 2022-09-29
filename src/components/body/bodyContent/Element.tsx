@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import Card from "../../layout/Card";
+import Card from "../../../layout/Card";
 import styles from "./Element.module.css";
 import { ICountryBasicData } from "../Body";
-import ThemeContext from "../../store/theme-context";
+import ThemeContext from "../../../store/theme-context";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 
