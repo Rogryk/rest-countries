@@ -11,18 +11,18 @@
 .buttonDisplay {
   background-color: transparent;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   color: inherit;
   cursor: pointer;
 }
 
-.buttonDisplay p {
+.buttonDisplay {
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-.buttonDisplay p::first-letter {
+.buttonDisplay:nth-child(2) {
   text-transform: capitalize;
 }
 

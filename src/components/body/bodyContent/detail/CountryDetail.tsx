@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ICountryDetailedData } from "../../Body";
 import Card from "../../../../layout/Card";
 import ThemeContext from "../../../../store/theme-context";
+import Button from "../../../../UI/Button";
 import styles from "./CountryDetail.module.css";
 
 interface ICountryDetail extends ICountryDetailedData {
@@ -55,12 +56,12 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
     <>
       <nav className={styles.nav}>
         <Card theme={themeCtx.theme}>
-          <button
-            className={`${styles["back-btn"]} ${themeCtx.theme}-element `}
+          <Button
+            class={`${styles["back-btn"]} ${themeCtx.theme}-element `}
             onClick={props.backClickHandler}
           >
             Back
-          </button>
+          </Button>
         </Card>
       </nav>
       <section className={styles["section-body"]}>

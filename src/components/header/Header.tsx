@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import ThemeToggleBtn from "../../UI/Button";
-import styles from "./Header.module.css";
 import ThemeContext from "../../store/theme-context";
+import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
   const themeCtx = useContext(ThemeContext);
