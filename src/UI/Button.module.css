@@ -1,10 +1,15 @@
-.button {
-  margin: auto 0;
-  border: none;
-  border-radius: 5px;
-  background-color: transparent;
+.buttonSize {
   height: 30px;
   width: 105px;
+}
+
+.buttonBorders {
+  border: none;
+  border-radius: 5px;
+}
+
+.buttonDisplay {
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,15 +17,15 @@
   cursor: pointer;
 }
 
-.button p {
+.buttonDisplay p {
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-.button p::first-letter {
+.buttonDisplay p::first-letter {
   text-transform: capitalize;
 }
 
-.button:hover {
+.buttonDisplay:hover {
   background-color: rgba(0, 0, 0, 0.03);
 }
