@@ -22,16 +22,10 @@ const Element: React.FC<IElement> = (props) => {
       onClick={() => props.elementClickHandler(props.name)}
     >
       <div className={styles["image-container"]}>
-        {/* <img
-          src={props.flag}
-          width={"190"}
-          height={"auto"}
-          loading={"lazy"}
-        ></img> */}
         <LazyLoadImage
           alt={"flag"}
           src={props.flag}
-          width={"190px"}
+          width={"100%"}
           height={"auto"}
           effect="opacity"
         ></LazyLoadImage>

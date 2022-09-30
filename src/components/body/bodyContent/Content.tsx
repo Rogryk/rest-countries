@@ -13,11 +13,7 @@ const Content: React.FC<IContent> = (props) => {
   const themeCtx = useContext(ThemeContext);
 
   return (
-    <section
-      className={`${styles.content} ${
-        themeCtx.theme === "light" ? styles.light : styles.dark
-      }`}
-    >
+    <section className={`${styles.content}`}>
       {props.content.map((el, index) => {
         return (
           <Element
