@@ -88,7 +88,7 @@ const Filters: React.FC<IFilters> = (props) => {
             <Menu.Item id="africa" onClick={() => onClickHandler("africa")}>
               Africa
             </Menu.Item>
-            <Menu.Item id="america" onClick={() => onClickHandler("americas")}>
+            <Menu.Item id="americas" onClick={() => onClickHandler("americas")}>
               America
             </Menu.Item>
             <Menu.Item id="asia" onClick={() => onClickHandler("asia")}>
