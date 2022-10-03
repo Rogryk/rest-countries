@@ -3,6 +3,9 @@ import { ICountryDetailedData } from "../../Body";
 import Card from "../../../../layout/Card";
 import ThemeContext from "../../../../store/theme-context";
 import Button from "../../../../UI/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 import styles from "./CountryDetail.module.css";
 
 interface ICountryDetail extends ICountryDetailedData {
@@ -52,6 +55,8 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
       })
     : "No information";
 
+  const backButtonIcon = <FontAwesomeIcon icon={faArrowLeft} size="sm" />;
+
   return (
     <>
       <nav className={styles.nav}>
@@ -59,6 +64,7 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
           <Button
             class={`${styles["back-btn"]} ${themeCtx.theme}-element `}
             onClick={props.backClickHandler}
+            iconLeft={backButtonIcon}
           >
             Back
           </Button>

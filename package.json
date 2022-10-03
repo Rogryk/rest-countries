@@ -52,6 +52,8 @@
     ]
   },
   "devDependencies": {
-    "@types/react-lazy-load-image-component": "^1.5.2"
+    "@types/enzyme": "^3.10.12",
+    "@types/react-lazy-load-image-component": "^1.5.2",
+    "enzyme": "^3.11.0"
   }
 }
