@@ -16,6 +16,7 @@ interface IFilters {
 const Filters: React.FC<IFilters> = (props) => {
   const [currentRegion, setCurrentRegion] = useState("Filter by Region");
   const [searchInput, setSearchInput] = useState("");
+  const [isSearchInputWrong, setIsSearchInputWrong] = useState(false);
 
   const themeCtx = useContext(ThemeContext);
 
@@ -28,9 +29,18 @@ const Filters: React.FC<IFilters> = (props) => {
     props.regionFilterHandler(region);
   };
 
+  function hasNumber(myString: string) {
+    return /\d/.test(myString);
+  }
+
   const onSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     setSearchInput(event.target.value);
+    if (hasNumber(event.target.value)) {
+      setIsSearchInputWrong(true);
+    } else {
+      setIsSearchInputWrong(false);
+    }
   };
 
   return (
@@ -43,15 +53,19 @@ const Filters: React.FC<IFilters> = (props) => {
             classNames={{
               input:
                 `${themeCtx.theme}-element` +
-                ` ${styles["border-transparent"]} `,
-              icon: `${themeCtx.theme}-element`,
-              wrapper: styles["input-width"],
+                ` ${
+                  !isSearchInputWrong
+                    ? styles["border-transparent"]
+                    : styles.alert
+                } `,
+              wrapper: `${styles["input-width"]} `,
             }}
             icon={<IconSearch />}
             variant="filled"
             placeholder="Search for a country..."
             radius="md"
             size="lg"
+            invalid={isSearchInputWrong}
           />
         </div>
       </Card>
