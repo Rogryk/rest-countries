@@ -72,7 +72,7 @@ const CountryDetail: React.FC<ICountryDetail> = (props) => {
       </nav>
       <section className={styles["section-body"]}>
         <div className={styles.flagContainer}>
-          <img src={props.flag} alt="flag of selected country" />
+          <img src={props.flag} alt={"flag of " + props.name} />
         </div>
         <div className={styles.infoContainer}>
           <h1>{props.name}</h1>
