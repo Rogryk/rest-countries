@@ -15,6 +15,7 @@
   max-width: 500px;
 }
 
+.border-transparent,
 .border-transparent:focus {
   border: 1px solid transparent !important;
 }
