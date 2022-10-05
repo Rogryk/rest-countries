@@ -15,6 +15,7 @@ const Element: React.FC<IElement> = (props) => {
 
   return (
     <Card
+      data-testid="element-component"
       theme={themeCtx.theme}
       className={`${styles.element} ${
         themeCtx.theme === "light" ? styles.light : styles.dark
@@ -23,7 +24,7 @@ const Element: React.FC<IElement> = (props) => {
     >
       <div className={styles["image-container"]}>
         <LazyLoadImage
-          alt={"flag"}
+          alt={`flag of ${props.name}`}
           src={props.flag}
           width={"100%"}
           height={"auto"}
