@@ -18,5 +18,5 @@ https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-swi
 
 # Live site 
 
-https://venerable-froyo-b22e78.netlify.app/
+https://rest-countries-rg.netlify.app/
 
