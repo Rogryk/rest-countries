@@ -3,7 +3,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Element from "./Element";
 import "../../../../setupTest";
-import { strict } from "assert";
 
 describe("CountryDetail component", () => {
   test("renders all provided info", () => {
