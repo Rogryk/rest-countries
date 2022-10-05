@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen, configure } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import CountryDetail from "./CountryDetail";
 import "../../../../../setupTest";
