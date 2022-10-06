@@ -1,10 +1,17 @@
 import React from "react";
-import { fireEvent, render, screen, configure } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Filters from "./Filters";
-import "../../../setupTest";
 
 describe("Filters component", () => {
+  beforeEach(() => {
+    global.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+  });
+
   test("takes and displays user input in text input field", () => {
     render(
       <Filters
@@ -18,7 +25,7 @@ describe("Filters component", () => {
     const textFieldByValue = screen.getByDisplayValue("test text");
 
     expect(inputField.value).toEqual("test text");
-    expect(textFieldByValue).toBeInTheDocument;
+    expect(textFieldByValue).toBeInTheDocument();
   });
 
   test("passes proper values to text input filter callback function", () => {
@@ -38,10 +45,10 @@ describe("Filters component", () => {
     expect(mockKeywordFilterHandler.mock.results[2].value).toEqual("test text");
   });
 
-  test("passes proper values to region filter callback function", () => {
+  test("passes proper values to region filter callback function", async () => {
     const mockRegionFilterHandler = jest.fn((arg) => arg);
 
-    render(
+    const { container } = render(
       <Filters
         regionFilterHandler={mockRegionFilterHandler}
         keywordFilterHandler={() => {}}

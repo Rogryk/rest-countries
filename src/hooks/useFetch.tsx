@@ -10,10 +10,12 @@ const useFetchData = (url: string) => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        setData(res), setIsLoading(false);
+        setData(res);
+        setIsLoading(false);
       })
       .catch((error) => {
-        setIsError(true), setError(error);
+        setIsError(true);
+        setError(error);
         setIsLoading(false);
       });
   }, [url]);
