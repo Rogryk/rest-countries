@@ -22,12 +22,16 @@ const FETCH_DUMMY = [
 ];
 
 describe("Body component", () => {
-  test("fetches and renders data", async () => [
-    (window.fetch = jest.fn().mockResolvedValueOnce({
+  test("fetches and renders data", async () => {
+    window.fetch = jest.fn().mockResolvedValueOnce({
       json: async () => FETCH_DUMMY,
-    })),
-  ]);
+    });
 
-  const contentElement = screen.findByText("testName1");
-  // expect(contentElement).toBeInTheDocument();
+    render(<Body />);
+
+    const contentElement1 = await screen.findByText("testName1");
+    const contentElement2 = await screen.findByText("testName2");
+    expect(contentElement1).toBeInTheDocument();
+    expect(contentElement2).toBeInTheDocument();
+  });
 });
