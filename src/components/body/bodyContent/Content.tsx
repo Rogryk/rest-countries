@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Content.module.css";
 import Element from "./Element";
 import { ICountryBasicData } from "../Body";
-import ThemeContext from "../../../store/theme-context";
 
 interface IContent {
   content: ICountryBasicData[];
@@ -10,8 +9,6 @@ interface IContent {
 }
 
 const Content: React.FC<IContent> = (props) => {
-  const themeCtx = useContext(ThemeContext);
-
   return (
     <section className={`${styles.content}`}>
       {props.content.map((el, index) => {
