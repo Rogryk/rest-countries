@@ -13,7 +13,7 @@ Users are able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
 
-https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca/hub/rest-countries-api-with-color-theme-switcher-NNTL1b97f0
+https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca
 
 
 # Live site 
