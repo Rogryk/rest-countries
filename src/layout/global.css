@@ -14,8 +14,12 @@
   --element-margin-1440px: 16px;
   --element-margin-375px: auto;
   --card-height: 320px;
+  --card-max-height: 400px;
+  --card-min-height: 240px;
   --card-height-375px: fit-content;
   --card-width: 190px;
+  --card-max-width: 238px;
+  --card-min-width: 142px;
   --card-width-375px: 90%;
   --card-font-size-country: 1.1rem;
   --card-font-size-info: 0.8rem;

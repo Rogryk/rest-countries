@@ -1,11 +1,12 @@
 .element {
-  margin: 1.5rem 1rem;
-  height: var(--card-height);
-  width: var(--card-width);
+  min-width: var(--card-min-width);
+  min-height: 300px;
+  margin: 0 auto;
 }
 
 .element:hover {
   cursor: pointer;
+  transform: scale(1.01);
 }
 
 .image-container {
@@ -30,20 +31,9 @@
   padding: 0.08rem 0;
 }
 
-@media only screen and (max-width: 380px) {
-  .info {
-    padding-left: 1rem;
-    font-size: var(--card-font-size-info-380px);
-  }
-
-  .info h3 {
-    font-size: var(--card-font-size-country-380px);
-  }
-}
-
 @media only screen and (max-width: 530px) {
   .element {
-    margin: 1rem 0;
+    margin: 1rem auto;
     width: var(--card-width-375px);
     height: var(--card-height-375px);
     padding-bottom: 40px;
@@ -55,5 +45,18 @@
 
   .info h3 {
     font-size: var(--card-font-size-country-530px);
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .info {
+    width: 70%;
+    margin: auto;
+    padding: 0;
+    font-size: var(--card-font-size-info-380px);
+  }
+
+  .info h3 {
+    font-size: var(--card-font-size-country-380px);
   }
 }
