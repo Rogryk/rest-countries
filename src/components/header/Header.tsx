@@ -12,7 +12,9 @@ const Header: React.FC = () => {
 
   return (
     <header className={`${styles.header} ${themeCtx.theme}-element`}>
-      <h3>Where in the world?</h3>
+      <h3>
+        <a href="/">Where in the world?</a>
+      </h3>
       <ThemeToggleBtn
         onClick={themeCtx.toggleTheme}
         class={"hover-effect"}
