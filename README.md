@@ -5,7 +5,7 @@ Project from frontendmentor.io challenge, link below.
 "(...) challenge is integrating with the REST Countries API to pull country data and display it like in the designs."
 Design files are included in folder 'rest-countries-api-with-color-theme-switcher-master'.
 
-Users are able to: 
+### Users are able to: 
 - See all countries from the API on the homepage
 - Search for a country using an input field
 - Filter countries by region
@@ -14,7 +14,7 @@ Users are able to:
 - Toggle the color scheme between light and dark mode
 
 
-Used technologies: 
+### Used technologies: 
 - React, Typescript,
 - Jest, React Testing Lib,
 - CSS Modules, 
